@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>IPN Voca 3 – Sitio Completo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="styles.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <script src="https://kit.fontawesome.com/a2d90f814e.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <!-- Encabezado IPN VOCA 3 -->
+<header class="encabezado-ipn">
+  <div class="encabezado-contenido">
+    <img src="ipn.jpeg" alt="Logo IPN" class="logo-ipn">
+    <div class="titulo-ipn">
+      <button class="btn-header" onclick="window.location.href='https://kikeale.github.io/Conocenos_IPN-EXT/'">Conócenos</button>
+      <a href="https://kikeale.github.io/REGISTRO-IPN/" class="btn-registrate" target="_blank">Regístrate</a>
+
+      <h1>IPN</h1>
+      <h2>Centro de Estudios Científicos y Tecnológicos No. 3</h2>
+      <h3>VOCACIONAL 3 - VOCA 3</h3>
+    </div>
+    <img src="gob.png" alt="Logo VOCA 3" class="logo-ipn">
+  </div>
+
+  <!-- Menú debajo del encabezado -->
+  <nav class="menu-ipn">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="#Nosotros">Nosotros</a></li>
+      <li><a href="#aja">Carreras</a></li>
+      <li><a href="#galeria">Galería</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <style>
+    body,html{margin:0;padding:0;font-family:'Roboto',sans-serif;}
+    .top-header{display:flex;justify-content:space-between;align-items:center;background:#ddd;padding:5px 20px;}
+    .logo-gob, .logo-ipn { height:50px; }
+    .site-header{background:#682444;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:10px 20px;position:sticky;top:0;z-index:100;}
+    .main-nav{list-style:none;display:flex;margin:0;padding:0;}
+    .main-nav li{margin-left:15px;}
+    .main-nav a{color:#fff;text-decoration:none;font-weight:bold;}
+    .objetivo {
+  background-color: #f4f4f4;
+  padding: 40px 20px;
+}
+/* Tipografía moderna */
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&family=Playfair+Display:wght@600&display=swap');
+
+body {
+  font-family: 'Rajdhani', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* ENCABEZADO ROJO DESVANECIDO */
+.encabezado-ipn {
+  background: linear-gradient(135deg, #682444, #8a2d5a, #b04860);
+  color: #fff;
+  padding: 30px 20px 10px;
+  text-align: center;
+  animation: fadeInDown 1s ease-out;
+}
+
+.encabezado-contenido {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* LOGOS */
+.logo-ipn {
+  width: 120px;
+  max-width: 100%;
+  animation: zoomIn 1s ease;
+}
+
+/* TÍTULOS ANIMADOS */
+.titulo-ipn h1 {
+  font-size: 3em;
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  color: #ffd700;
+  animation: colorPulse 2s infinite;
+}
+
+.titulo-ipn h2, .titulo-ipn h3 {
+  margin: 5px 0;
+  font-size: 1.5em;
+  color: #fff;
+  animation: fadeIn 2s ease;
+}
+
+/* MENÚ DEBAJO DEL ENCABEZADO */
+.menu-ipn {
+  background-color: #4e1b33;
+  padding: 15px 0;
+}
+
+.menu-ipn ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-ipn li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1em;
+  font-weight: bold;
+  font-family: 'Rajdhani', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.menu-ipn li a:hover {
+  color: #ffd700;
+  text-shadow: 0 0 5px #fff;
+}
+.barra-superior {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  padding-bottom: 10px;
+}
+
+.btn-header {
+  background-color: #ffd700;
+  color: #682444;
+  border: none;
+  padding: 10px 18px;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.btn-header:hover {
+  background-color: #fff;
+  transform: scale(1.05);
+}
+
+
+/* ANIMACIONES */
+@keyframes fadeInDown {
+  from { transform: translateY(-30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes colorPulse {
+  0%, 100% { color: #ffd700; }
+  50% { color: #ffffff; }
+}
+
+
+.objetivo {
+    background-color: #f9f7f8;
+    padding: 50px 20px;
+  }
+
+  .objetivo-contenido {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .objetivo-texto {
+    flex: 1;
+    min-width: 300px;
+    padding-right: 25px;
+  }
+
+  .objetivo-texto h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4em;
+    color: #682444;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-shadow: 1px 1px 3px rgba(176, 72, 96, 0.4);
+  }
+
+  .objetivo-texto p {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.2em;
+    line-height: 1.7;
+    color: #4b4b4b;
+  }
+
+  .objetivo-imagen {
+    flex: 1;
+    min-width: 320px;
+    text-align: center;
+  }
+
+  .objetivo-imagen img {
+    width: 100%;
+    max-width: 550px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(104, 36, 68, 0.15);
+    transition: transform 0.3s ease;
+  }
+
+  .objetivo-imagen img:hover {
+    transform: scale(1.05);
+  }
+
+
+    /* Contenedor gris para el carrusel */
+.carrusel-container {
+  background-color: #ddd;
+  padding: 20px;
+  max-width: 980px;
+  margin: 40px auto;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  overflow: hidden; /* Oculta lo que se desborda */
+}
+
+.carrusel {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  z-index: 1000;
+}
+
+.swiper-container {
+  width: 100%;
+  overflow: hidden; /* Para que las imágenes no se salgan */
+}
+
+.swiper-wrapper {
+  display: flex;
+}
+
+.swiper-slide {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 960px;
+  box-sizing: border-box;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s;
+  display: block;
+}
+
+.swiper-slide img:hover {
+  transform: scale(1.05);
+}
+
+
+
+    /* MODALES */
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 1000;
+    background: rgba(0,0,0,0.6);
+  }
+
+  .modal-content {
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    max-width: 340px;
+    margin: 100px auto;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0,0,0,0.6);
+    position: relative;
+    z-index: 1001;
+  }
+
+  .modal-buttons button {
+    margin: 6px;
+    padding: 12px 18px;
+    background: #682444;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .modal-buttons button:hover {
+    background: #8a2d5a;
+  }
+
+.animated-title {
+  text-align: center;
+  font-size: 2em;
+  color: #682444;
+  margin-bottom: 20px;
+}
+
+
+    .modal-buttons button{margin:5px;padding:10px 15px;background:#682444;color:#fff;border:none;border-radius:4px;cursor:pointer;transition:background 0.3s;}
+    .modal-buttons button:hover{background:#8a2d5a;}
+
+    .hero-texto { background:url('assets/bghero.jpg') center/cover no-repeat; height:220px; position:relative; }
+    .hero-texto .overlay { background:rgba(0,0,0,0.5); color:#fff; height:100%; display:flex; align-items:center; justify-content:center; gap:20px; flex-direction:row; text-align:center; padding:0 20px; }
+    .hero-texto img{height:60px;animation:bounce 2s infinite;}
+    .hero-texto h2{color:white; font-size:1.8em;}.redes-bar, .redes-top { background:#ddd;padding:10px;text-align:center; }
+    .redes-bar a, .redes-top a { margin:0 10px;color:#682444; }
+    .hero-texto {
+  background-image: url('assets/bghero.jpg'); /* Ruta de la imagen de fondo */
+  background-size: cover;                     /* Hace que cubra todo el contenedor */
+  background-position: center;                /* Centra la imagen */
+  background-repeat: no-repeat;               /* No se repite */
+  height: 220px;
+  position: relative;
+}
+
+
+
+    @keyframes bounce {
+      0%, 100% { transform:translateY(0); }
+      50% { transform:translateY(-10px); }
+    }
+
+
+    .botones-modal { display:flex; gap:20px; justify-content:center; margin:20px; }
+    .btn-rect { display:flex; align-items:center; background:#682444; color:#fff; padding:10px 20px; border-radius:6px; cursor:pointer; }
+    .btn-rect img{width:40px;height:40px;margin-right:10px;}
+
+    .modal { display:none; position:fixed; top:0;left:0;width:100%;height:100%; background:rgba(0,0,0,0.5); }
+    .modal-content { background:#fff;padding:20px;border-radius:8px;max-width:300px;margin:100px auto;text-align:center; }
+    .modal-buttons button{margin:5px;padding:8px 12px;}
+
+    .hero-texto { background:url('assets/bghero.jpg') center/cover no-repeat; height:200px; position:relative; }
+    .hero-texto .overlay { background:rgba(0,0,0,0.5); color:#fff; height:100%; display:flex; align-items:center; justify-content:center; gap:20px; flex-direction:row; }
+    .hero-texto img{height:60px;}
+
+    .carreras {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 25px 20px;
+  }
+
+  .carrera {
+    width: 140px;
+    text-align: center;
+  }
+
+  .carrera button {
+    width: 100%;
+    background: none;
+    border: 2px solid #682444;
+    border-radius: 10px;
+    padding: 12px 10px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .carrera button:hover {
+    background: #682444;
+    transform: scale(1.07);
+  }
+
+  .carrera img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 8px rgba(104,36,68,0.3);
+    transition: transform 0.3s;
+  }
+
+  .carrera button:hover img {
+    transform: scale(1.05);
+  }
+
+  .carrera span {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.15em;
+    color: #682444;
+    font-weight: 700;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+  }
+
+  .carrera button:hover span {
+    color: #fff;
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
+  }
+
+    .redes-bar{background:#ddd;padding:10px;text-align:center;}
+    .redes-bar a{margin:0 10px;color:#682444;}
+
+    .contact-area{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;padding:20px;background:#f5f5f5;}
+    #map{flex:1;min-width:300px;max-width:100%;height:300px;border:2px solid #682444;border-radius:8px;box-shadow:0 0 10px rgba(0,0,0,0.2);}
+    form{flex:1;max-width:400px;display:grid;gap:10px;}
+    form input, form select, form textarea { padding:8px; border:1px solid #ccc; border-radius:4px; }
+    form button { background:#682444; color:white; padding:10px; border:none; border-radius:5px; cursor:pointer; }
+
+    .site-footer{background:#682444;color:#fff;text-align:center;padding:10px;}
+    .redes-superior {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  display: flex;
+  gap: 15px;
+  z-index: 999;
+}
+
+.redes-superior a {
+  background-color: #682444;
+  color: white; /* Color del ícono blanco */
+  width: 40px;
+  height: 40px;
+  font-size: 1.2em;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.3s;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.redes-superior a:hover {
+  background-color: #8a2d5a;
+  transform: scale(1.1);
+  color: #fff;
+}
+.btn-musica {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #682444;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 1.5em;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  cursor: pointer;
+  z-index: 9999;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-musica:hover {
+  background-color: #8a2d5a;
+  transform: scale(1.1);
+}
+.btn-registrate {
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  background-color: #682444;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-size: 1em;
+  font-weight: bold;
+  font-family: 'Rajdhani', sans-serif;
+  text-decoration: none;
+  z-index: 10000;
+  transition: background 0.3s, transform 0.3s;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.btn-registrate:hover {
+  background-color: #8a2d5a;
+  transform: scale(1.05);
+}
+
+
+
+  </style>
+</head>
+<body>
+  <!-- Reproductor de música oculto -->
+<audio id="audioMusica" src="assets/5 Minutos Música Relajante para Meditar Estudiar o Trabajar. Encuentra paz interior. Duerme mejor.mp3"></audio>
+
+<!-- Botón flotante de música -->
+<button id="btnMusica" class="btn-musica" onclick="toggleMusica()">
+  <i class="fas fa-play"></i>
+</button>
+
+    <main>
+  <section id="galeria" class="scroll-section">
+  <h2 class="animated-title">Galería de Recuerdos</h2>
+  <div class="carrusel-container">
+    <div class="carrusel">
+
+    <!-- Contenedor gris del carrusel -->
+    <div class="carrusel-container">
+      <div class="carrusel">
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="assets/1.jpeg" alt=""></div>
+            <div class="swiper-slide"><img src="assets/2.jpeg" alt=""></div>
+            <div class="swiper-slide"><img src="assets/3.jpeg" alt=""></div>
+            <div class="swiper-slide"><img src="assets/4.jpeg" alt=""></div>
+            <div class="swiper-slide"><img src="assets/5.jpeg" alt=""></div>
+            <div class="swiper-slide"><img src="assets/6.jpeg" alt=""></div>
+            <div class="swiper-slide"><img src="assets/7.jpeg" alt=""></div>
+            <div class="swiper-slide"><img src="assets/8.jpeg" alt=""></div>
+            <div class="swiper-slide"><img src="assets/9.jpeg" alt=""></div>
+            <div class="swiper-slide"><img src="assets/10.jpeg" alt=""></div>
+          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+      </div>
+    </div>
+    <!-- Fin contenedor gris -->
+  </section>
+  
+</main>
+  <main>
+  <section id="Nosotros" class="scroll-section">
+  <section class="objetivo">
+  <div class="objetivo-contenido">
+    <div class="objetivo-texto">
+      <h2>Nuestro Objetivo</h2>
+      <p>
+       El objetivo de esta página es brindar a estudiantes, docentes y visitantes una plataforma digital atractiva, interactiva y accesible donde puedan conocer de forma clara la oferta educativa, misión, visión, carreras técnicas y actividades del Centro de Estudios Científicos y Tecnológicos No. 3 "Estanislao Ramírez Ruiz" (Voca 3) del IPN.
+A través de un diseño moderno, animaciones visuales, formularios funcionales, mapas interactivos y contenidos multimedia, buscamos fortalecer la comunicación institucional, facilitar la orientación vocacional y fomentar el orgullo politécnico en nuestra comunidad.
+
+Además, esta página permite centralizar toda la información relevante de los programas académicos y especialidades técnicas que ofrece la institución, con enlaces directos, herramientas de contacto y recursos informativos útiles para padres de familia, aspirantes y alumnos activos. Se promueve el acceso rápido y sencillo a trámites, ubicaciones, redes sociales y canales oficiales del plantel.
+
+Se ha cuidado el estilo visual y estructural del sitio para que refleje la identidad del Instituto Politécnico Nacional, con colores institucionales, fuentes armonizadas, menús dinámicos y secciones organizadas por temas, logrando una navegación fluida y profesional en cualquier dispositivo.
+      </p>
+    </div>
+    <div class="objetivo-imagen">
+      <img src="assets/gradu.jpeg" alt="Nuestro objetivo">
+    </div>
+  </div>
+</section>
+</main>
+
+
+
+    
+    
+
+  </section>
+
+    <section class="botones-modal">
+      <div class="btn-rect" data-modal="modal1">
+        <img src="ct.jpeg"><span>Horarios ciclo escolar 25</span>
+      </div>
+      <div class="btn-rect" data-modal="modal2">
+        <img src="ct.jpeg"><span>Convocatoria rediseño</span>
+      </div>
+      <div class="modal" id="modal1">
+  <div class="modal-content">
+    <h3>Opciones Botón 1</h3>
+    <div class="modal-buttons">
+      <button onclick="window.location.href='https://www.cecyt3.ipn.mx/Documents/sub_academica/Horarios25-2/HORARIOS%20SEGUNDO%20MATUTINO.pdf'">Horarios de Segundo Matutino </button>
+      <button onclick="window.location.href='https://www.cecyt3.ipn.mx/Documents/sub_academica/Horarios25-2/HORARIOS%20SEGUNDO%20VESPERTINO.pdf'">Horarios de Segundo Vespertino </button>
+      <button onclick="window.location.href='https://www.cecyt3.ipn.mx/Documents/sub_academica/Horarios25-2/HORARIOS%20CUARTO%20VESPERTINO.pdf'">Horarios de Cuarto Vespertino</button>
+      <button onclick="window.location.href='https://www.cecyt3.ipn.mx/Documents/sub_academica/Horarios25-2/HORARIOS%20SEXTO%20MATUTINO.pdf'">Horarios de Sexto Matutino</button>
+      <button onclick="window.location.href='https://www.cecyt3.ipn.mx/Documents/sub_academica/Horarios25-2/HORARIOS%20SEXTO%20VESPERTINO.pdf'">Horarios de Sexto Vespertino</button>
+   </div>
+  </div>
+</section>
+
+<div class="modal" id="modal2">
+  <div class="modal-content">
+    <h3>Rediseño de escudo </h3>
+    <div class="modal-buttons">
+      <button onclick="window.location.href='https://www.cecyt3.ipn.mx/Documents/sub_academica/convocatorias/rediseno_escudo.pdf'">Convocatoria </button>
+      
+    </div>
+  </div>
+</div>
+
+    </section>
+
+    <section class="hero-texto">
+  <div class="overlay">
+    <img src="ct.jpeg" alt="Logo IPN">
+  
+ <main>
+  <section id="aja" class="scroll-section">
+    <h2>CENTRO DE ESTUDIOS CIENTÍFICOS Y TECNOLÓGICOS NO. 3</h2>
+  </div>
+</section>
+<h2 class="animated-title">Carreras </h2>
+
+    <section class="carreras">
+      <div class="carrera"><button class="carrera" onclick="location.href='https://www.cecyt3.ipn.mx/views/oferta-educativa/control-electrico.html'">
+    <img src="assets/control-electrico.png" alt="Electrónica"><span>Electrónica</span>
+    
+  </button></div>
+      <div class="carrera"><button class="carrera" onclick="location.href='https://www.cecyt3.ipn.mx/views/oferta-educativa/computacion.html'">
+     <img src="assets/computacion.png" alt="Computación">   <span>Computación</span>
+    </button></div>
+      <div class="carrera"><button class="carrera" onclick="location.href='https://www.cecyt3.ipn.mx/views/oferta-educativa/sistemas-digitales.html'">
+     <img src="assets/sistemas-digitales.png" alt="Sistemas digitales"> <span>Sistemas digitales</span>
+    </button></div>
+      <div class="carrera"><button class="carrera" onclick="location.href='https://www.cecyt3.ipn.mx/views/oferta-educativa/mac.html'">
+    <img src="assets/mac.png" alt="MAC"> <span>MAC</span>
+    </button></div>
+      <div class="carrera"><button class="carrera" onclick="location.href='https://www.cecyt3.ipn.mx/views/oferta-educativa/aeronautica.html'">
+     <img src="assets/ae.png" alt="Aeronáutica"> <span>Aeronáutica</span>
+    </button></div>
+     <div class="carrera"><button class="carrera" onclick="location.href='https://www.cecyt3.ipn.mx/views/oferta-educativa/automotriz.html'">
+     <img src="assets/automotriz.png" alt="Automotriz">  <span>Automotriz</span>
+    </button></div>
+    </section>
+    </main>
+
+   <main id="contacto">
+    <section class="redes-top">
+      <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+      <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+      <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+    </section>
+    
+    <section class="contact-area">
+      <div id="map"></div>
+      <form id="formContacto">
+        <h2>Contacto</h2>
+        <input name="nombre" placeholder="Nombre completo" required>
+        <input type="email" name="email" placeholder="Correo electrónico" required>
+        <input name="telefono" placeholder="Teléfono" required pattern="^[0-9]{10}$">
+        <input name="matricula" placeholder="Matrícula" required>
+        <select name="carrera" required>
+          <option value="">Seleccione carrera</option>
+          <option>Tecnologías</option><option>Electrónica</option><option>Sistemas</option>
+        </select>
+        <input type="number" name="edad" placeholder="Edad" min="15" max="100" required>
+        <textarea name="mensaje" placeholder="Mensaje..." required></textarea>
+        <label><input type="checkbox" name="terminos" required> Acepto términos</label>
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© IPN Voca 3 — Zacatenco, CDMX</p>
+    <!-- Iconos de redes sociales en la parte superior izquierda -->
+<div class="redes-superior">
+  <a href="https://www.facebook.com/IPN.MX.Oficial" target="_blank" aria-label="Facebook">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+  <a href="https://www.tiktok.com/@ipn_mx" target="_blank" aria-label="TikTok">
+    <i class="fab fa-tiktok"></i>
+  </a>
+  <a href="https://www.instagram.com/ipn_mx/" target="_blank" aria-label="Instagram">
+    <i class="fab fa-instagram"></i>
+  </a>
+</div>
+
+
+  </footer>
+
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    const swiper = new Swiper('.swiper-container',{ slidesPerView:3, spaceBetween:10, pagination:{el:'.swiper-pagination'}, navigation:{nextEl:'.swiper-button-next', prevEl:'.swiper-button-prev'} });
+    swiper.on('click', e => {
+      if(e.clickedSlide){
+        const src = e.clickedSlide.querySelector('img').src;
+        Swal.fire({imageUrl: src, width: '80%', showConfirmButton: false, showCloseButton: true, background: '#000'});
+      }
+    });
+
+    document.querySelectorAll('.btn-rect').forEach(btn=>{
+      btn.onclick = ()=> document.getElementById(btn.dataset.modal).style.display = 'block';
+    });
+    document.querySelectorAll('.modal').forEach(mod=>{
+      mod.onclick = e=> { if(e.target === mod) mod.style.display='none'; }
+    });
+
+    const map = L.map('map').setView([19.5311, -99.1276], 15);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+    L.marker([19.5311, -99.1276]).addTo(map).bindPopup('CETis No. 3 IPN').openPopup();
+
+    document.getElementById('formContacto').addEventListener('submit', e=>{
+      e.preventDefault();
+      Swal.fire('¡Enviado!', 'Tu formulario ha sido enviado con éxito.', 'success');
+    });
+    
+  function toggleMusica() {
+    const audio = document.getElementById("audioMusica");
+    const icono = document.querySelector("#btnMusica i");
+
+    if (audio.paused) {
+      audio.play();
+      icono.classList.remove("fa-play");
+      icono.classList.add("fa-pause");
+    } else {
+      audio.pause();
+      icono.classList.remove("fa-pause");
+      icono.classList.add("fa-play");
+    }
+  }
+
+
+  </script>
+</body>
+</html>
